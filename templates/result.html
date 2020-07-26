@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>IoT traffic translater</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {background-color: #E8EAFF}
+        h1 {font-size: 300%}
+        h1 {background-color: darkgrey}
+        h1 {color: #444444}
+        h1 {margin-left : 3.5in;}
+        nav nav-pills {color: aquamarine}
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            background: url("../static/3.png");
+        }
+        li {float: right}
+        li a:hover {background-color: #111;}
+        li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        *{padding: 0;margin: 0}
+        .resultsshow{width: auto;height: auto;margin: auto}
+        .phoneapp{float: left;padding: 10px;}
+        .bulb{float: right;padding: 10px;}
+
+
+</style>
+</head>
+
+<body>
+<ul>
+    <li><a href="/about">About</a></li>
+    <li><a href="/help">Help</a></li>
+    <li><a href="/">Home</a></li>
+</ul>
+<div class="container">
+<div class="row">
+    <div class="col-md-3">
+        <div class="row center-block" style="width: 200px">
+
+            <img class="img-responsive" src="../static/on.jpg" style="width:100%" alt="">
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        {%for item in dictPutall%}
+            {% for key in item%}
+                <div class="row {{ 'pull-right' if item[key][2] == 'R' else 'pull-left'}}" style="width: 350px ;background-color: whitesmoke">
+                    <p id="p"; style ="color: black; word-wrap: break-word; word-break: break-all">{{ item[key][0] }}</p>
+                    <p style ="color: #444444">{{item[key][1]}}</p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="col-md-3">
+        <div class="row center-block" style="width: 200px">
+            <img class="img-responsive" src="../static/lon.jpg" style="width: 100%" alt="">
+        </div>
+    </div>
+</div>
+</div>
+
+<!--<div class="resultsshow">-->
+<!--    <div class="phoneapp">-->
+<!--        <img src="../static/on.jpg" width="200" height="200">-->
+<!--    </div>-->
+<!--    <div class="info">-->
+<!--        {{dictPutall}}-->
+<!--    </div>-->
+
+<!--    <div class="trans"></div>-->
+<!--    <div class="bulb">-->
+<!--        <img src="../static/lon.jpg" width="200" height="200">-->
+<!--    </div>-->
+<!--</div>-->
+<!--{{dictPutall}}-->
+</body>
+</html>

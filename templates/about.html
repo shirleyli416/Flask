@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>IoT traffic translater</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {background-color: #E8EAFF}
+        h1 {font-size: 300%}
+        h1 {background-color: darkgrey}
+        h1 {color: #444444}
+        h1 {margin-left : 3.5in;}
+        nav nav-pills {color: aquamarine}
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            background: url("../static/3.png");
+        }
+        li {float: right}
+        li a:hover {background-color: #111;}
+        li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        p.sansserif{
+            font-family:Arial,Verdana,Sans-serif;
+            font-style:italic;
+            font-weight: bold;
+            font-size: 120%;
+            text-indent: 1cm
+        }
+
+</style>
+</head>
+<body>
+
+<ul>
+    <li><a href="/about">About</a></li>
+    <li><a href="/help">Help</a></li>
+    <li><a href="/">Home</a></li>
+</ul>
+<p class="sansserif">
+    This web will allow people who do not have computer network knowledge to understand the main content of the traffic packets, and do not have to learn computer network knowledge or protocol related knowledge. Taking IoT traffic packets from an IoT device (Philips bulbs) as an example, the site pre-captures pcap files for viewing converted file information(convert information from binary form to text). So that they could have a more intuitive understanding of protocols and control information of devices on the Internet of Things.  For these users, it might be an easy start to learn about IoT traffic. This web will display filtered, cleaned up, and translated(visualized) packets, and the Result page will display the original traffic packet and the corresponding converted information, which might be understandable for users without relevant knowledge.
+</p>
+
+
+</body>
+</html>

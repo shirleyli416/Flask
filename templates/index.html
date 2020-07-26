@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>IoT traffic translater</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {background-color: #E8EAFF}
+        h1 {font-size: 300%}
+        h1 {background-color: darkgrey}
+        h1 {color: #444444}
+        h1 {margin-left : 3.5in;}
+        nav nav-pills {color: aquamarine}
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            background: url("../static/3.png");
+        }
+        li {float: right}
+        li a:hover {background-color: #111;}
+        li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        p.sansserif{
+            font-family:Arial,Verdana,Sans-serif;
+            font-style:italic;
+            font-weight: bold;
+            font-size: 150%;
+            text-indent: 1cm;
+        }
+        div.select {
+            font-family: Arial, Verdana, Sans-serif;
+            /*font-style:italic;*/
+            font-weight: bold;
+            font-size: 120%;
+        }
+</style>
+</head>
+<body>
+
+<ul>
+    <li><a href="/about">About</a></li>
+    <li><a href="/help">Help</a></li>
+    <li><a href="">Home</a></li>
+</ul>
+<p class="sansserif">This web provides 8 different pre-captured IoT traffic packets with different operations in IoT device, please select one of them to view the detail of the packet.</p>
+<p></p>
+<div class="select">
+    <form action="/result?q=">
+        Select one Example packet:
+        <br>
+        <input type="radio" id="pcap1" name="mode" value="pcap1" {% if mode == 'pcap1' %} checked {% endif %}>
+        <label for="pcap1">Example 1</label>
+        <input type="radio" id="pcap2" name="mode" value="pcap2" {% if mode == 'pcap2' %} checked {% endif %}>
+        <label for="pcap2">Example 2</label>
+        <input type="radio" id="pcap3" name="mode" value="pcap3" {% if mode == 'pcap3' %} checked {% endif %}>
+        <label for="pcap3">Example 3</label>
+        <input type="radio" id="pcap4" name="mode" value="pcap4" {% if mode == 'pcap4' %} checked {% endif %}>
+        <label for="pcap4">Example 4</label>
+        <br>
+        <input type="radio" id="pcap5" name="mode" value="pcap5" {% if mode == 'pcap5' %} checked {% endif %}>
+        <label for="pcap5">Example 5</label>
+        <input type="radio" id="pcap6" name="mode" value="pcap6" {% if mode == 'pcap6' %} checked {% endif %}>
+        <label for="pcap6">Example 6</label>
+        <input type="radio" id="pcap7" name="mode" value="pcap7" {% if mode == 'pcap7' %} checked {% endif %}>
+        <label for="pcap7">Example 7</label>
+        <input type="radio" id="pcap8" name="mode" value="pcap8" {% if mode == 'pcap8' %} checked {% endif %}>
+        <label for="pcap8">Example 8</label>
+        <br>
+        <input type="submit" value="Convert" style="float: left;" class="btn btn-primary">
+  </form>
+    <p></p>
+  </div>
+
+</body>
+</html>

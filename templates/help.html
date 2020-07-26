@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>IoT traffic translater</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+
+        nav nav-pills {color: aquamarine}
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            background: url("../static/3.png");
+        }
+        li {float: right}
+        li a:hover {background-color: #111;}
+        li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        p.Head{
+            font-family:Arial,Verdana,Sans-serif;
+            font-style:italic;
+            font-weight: bold;
+            font-size: 150%;
+            text-indent: 1cm;
+        }
+        p.body{
+            font-family:Arial,Verdana,Sans-serif;
+            /*font-style:italic;*/
+            /*font-weight: bold;*/
+            font-size: 120%;
+            text-indent: 1cm;
+        }
+
+</style>
+</head>
+<body>
+
+<ul>
+    <li><a href="/about">About</a></li>
+    <li><a href="/help">Help</a></li>
+    <li><a href="/">Home</a></li>
+</ul>
+
+<p class="Head">
+    How to use
+</p>
+<p class="body">
+    In home page, there are 8 example packets, which are captured by Wireshark. Users could just select one example and click convert. After that, it will jump to the result page. The result page compares the original information in the package with the translated information. It makes it easier for the user to understand how does the packet transmit information to control the IoT device。
+</p>
+<br>
+</body>
+</html>
