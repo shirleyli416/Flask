@@ -78,14 +78,31 @@ def filter(pkt):
 
                 elif pkt[i + 5].haslayer(Raw) and pkt[i + 5][TCP].flags == 'FPA':
                     newstr = bytes.decode(pkt[i + 5][Raw].load)
-                    transinfo = 'test information'
+                    transinfo = 'User Turn on the light'
                     strinfo = newstr.split('application/json', 1)
-                    if 'on":false' in strinfo[1]:
+                    if 'on\":false' in strinfo[1]:
                         transinfo = 'The light is off'
-                    elif 'on":true' in strinfo[1]:
+                    elif 'on\":true' in strinfo[1]:
                         if '"bri"' in strinfo[1]:
                             result = re.findall(r'".*bri":(\d+),".*',strinfo[1])
                             transinfo = 'The light is on and the bright is '+result[0]
+                    elif 'success' in strinfo[1] and 'true' in strinfo[1]:
+                        transinfo = 'User Turn on the light'
+                    elif 'success' in strinfo[1] and 'state/on":true}' in strinfo[1]:
+                        transinfo = 'User Turn on the light'
+
+                    elif 'success' in strinfo[1] and 'false' in strinfo[1]:
+                        transinfo = 'User Turn off the light'
+                    elif 'success' in strinfo[1] and 'bri":' in strinfo[1]:
+                        result = re.findall(r'".*bri":(\d+)}}.*', strinfo[1])
+                        transinfo = 'User Change the bright to  ' + result[0]
+                    elif 'success' in strinfo[1] and 'TcqOY6HeeWmJX5F' in strinfo[1]:
+                        transinfo = 'User Change the Bulb scene to Light Night'
+                    elif 'success' in strinfo[1] and 'uNkI514cZW21Rsj' in strinfo[1]:
+                        transinfo = 'User Change the Bulb scene to Bright'
+                    elif 'success' in strinfo[1] and 'TcqOY6HeeWmJX5F' in strinfo[1]:
+                        transinfo = 'User Change the Bulb scene to Fading'
+
                     listinfo = [strinfo[1], transinfo, 'L']
                     result_dict.update({i + 5: listinfo})
                 else:
@@ -138,15 +155,15 @@ if __name__ == '__main__':
 
     # packets1 = scapy.all.rdpcap("pcap/test1.pcap")
 
-    dict1 = dict_chunk(filter(scapy.all.rdpcap("pcap/test1.pcap")), 6)
+    dict1 = filter(scapy.all.rdpcap("pcap/test1.pcap"))
     print(dict1)
-    dict2 = dict_chunk(filter(scapy.all.rdpcap("pcap/test2.pcap")), 6)
-    dict3 = dict_chunk(filter(scapy.all.rdpcap("pcap/test3.pcap")), 6)
-    dict4 = dict_chunk(filter(scapy.all.rdpcap("pcap/test4.pcap")), 6)
-    dict5 = dict_chunk(filter(scapy.all.rdpcap("pcap/test5.pcap")), 6)
-    dict6 = dict_chunk(filter(scapy.all.rdpcap("pcap/test6.pcap")), 6)
-    dict7 = dict_chunk(filter(scapy.all.rdpcap("pcap/test7.pcap")), 6)
-    dict8 = dict_chunk(filter(scapy.all.rdpcap("pcap/test8.pcap")), 6)
+    dict2 = filter(scapy.all.rdpcap("pcap/test2.pcap"))
+    dict3 = filter(scapy.all.rdpcap("pcap/test3.pcap"))
+    dict4 = filter(scapy.all.rdpcap("pcap/test4.pcap"))
+    dict5 = filter(scapy.all.rdpcap("pcap/test5.pcap"))
+    dict6 = filter(scapy.all.rdpcap("pcap/test6.pcap"))
+    dict7 = filter(scapy.all.rdpcap("pcap/test7.pcap"))
+    dict8 = filter(scapy.all.rdpcap("pcap/test8.pcap"))
     dictAllPut = {"pcap1":dict1,"pcap2":dict2,"pcap3":dict3,"pcap4":dict4,"pcap5":dict5,"pcap6":dict6,"pcap7":dict7,"pcap8":dict8}
     print(dictAllPut)
     jsonwrite(dictAllPut)

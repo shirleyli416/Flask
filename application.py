@@ -41,3 +41,8 @@ def result():
         dictpcap = dictPutall['pcap8']
 
     return render_template('result.html',dictPutall=dictpcap)
+
+
+if __name__ == '__main__':
+    app.run()
+

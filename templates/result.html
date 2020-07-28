@@ -48,30 +48,60 @@
     <li><a href="/">Home</a></li>
 </ul>
 <div class="container">
-<div class="row">
-    <div class="col-md-3">
-        <div class="row center-block" style="width: 200px">
+    <div class="row">
 
-            <img class="img-responsive" src="../static/on.jpg" style="width:100%" alt="">
-
-        </div>
-    </div>
-    <div class="col-md-6">
-        {%for item in dictPutall%}
-            {% for key in item%}
-                <div class="row {{ 'pull-right' if item[key][2] == 'R' else 'pull-left'}}" style="width: 350px ;background-color: whitesmoke">
-                    <p id="p"; style ="color: black; word-wrap: break-word; word-break: break-all">{{ item[key][0] }}</p>
-                    <p style ="color: #444444">{{item[key][1]}}</p>
+        <div class="col-md-3">
+{#            <div>#}
+{#                <img class="img-responsive" src="../static/off.jpg" style="width: 200px;height: 200px" alt="">#}
+{#                <p>设备成功连接，等待用户控制</p>#}
+{#            </div>#}
+            {%for key in dictPutall%}
+                <div class="row center-block" style="width: 200px;height: 200px">
+                    {% if "Turn on" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/on.jpg" style="width:100%" alt="">
+                    {% elif "Turn off" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/off.jpg" style="width:100%" alt="">
+                    {% elif "Change the bright" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/bright.jpg" style="width:100%" alt="">
+                    {% elif "Bulb scene" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/scene.jpg" style="width:100%" alt="">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
                 </div>
             {% endfor %}
-        {% endfor %}
-    </div>
-    <div class="col-md-3">
-        <div class="row center-block" style="width: 200px">
-            <img class="img-responsive" src="../static/lon.jpg" style="width: 100%" alt="">
         </div>
+
+        <div class="col-md-6">
+            {%for key in dictPutall%}
+                <div class="row {{ 'pull-right' if dictPutall[key][2] == 'R' else 'pull-left'}}" style="width: 350px;height: 200px;background-color: whitesmoke;border: darkgrey solid">
+                    <br>
+                    <p id="p"; style ="color: black; word-wrap: break-word; word-break: break-all;border-bottom: darkgoldenrod dashed">{{ dictPutall[key][0] }}</p>
+                    <br>
+                    <p style ="color: #444444">{{dictPutall[key][1]}}</p>
+                    <br>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-3">
+            {%for key in dictPutall%}
+                <div class="row center-block" style="width: 200px;height: 200px">
+                    {% if "Turn on" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/lon.jpg" style="width:100%" alt="">
+                    {% elif "Turn off" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/loff.jpg" style="width:100%" alt="">
+                    {% elif "Change the bright" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/lbright.jpg" style="width:100%" alt="">
+                    {% elif "Bulb scene" in dictPutall[key][1] %}
+                        <img class="img-responsive" src="../static/lbright.jpg" style="width:100%" alt="">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
-</div>
 </div>
 
 <!--<div class="resultsshow">-->
